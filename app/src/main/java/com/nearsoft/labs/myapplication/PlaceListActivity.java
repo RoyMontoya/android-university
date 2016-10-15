@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlaceListActivity extends AppCompatActivity {
+public class PlaceListActivity extends AppCompatActivity implements PlaceListListener{
 
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
@@ -28,20 +28,21 @@ public class PlaceListActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new PlaceListAdapter(mPlaceList);
+        mAdapter = new PlaceListAdapter(mPlaceList, this);
         mRecyclerView.setAdapter(mAdapter);
-
-        //TODO: go to https://developers.google.com/maps/documentation/android-api/ to get a key
-        Intent intent = new Intent(this, MapsActivity.class);
-        startActivity(intent);
     }
 
     private void fillPlaceList() {
         mPlaceList = new ArrayList<>();
-        mPlaceList.add(new Place("Mai jaus"));
-        mPlaceList.add(new Place("casa de mandil"));
-        mPlaceList.add(new Place("la scuela"));
-        mPlaceList.add(new Place("el mundo perdido"));
-        mPlaceList.add(new Place("el JJ"));
+        mPlaceList.add(new Place("Mai jaus", 29.097437, -111.022033));
+        mPlaceList.add(new Place("casa de mandil", 29.097437, -111.022033));
+        mPlaceList.add(new Place("la scuela", 29.097437, -111.022033));
+        mPlaceList.add(new Place("el mundo perdido", 29.097437, -111.022033));
+        mPlaceList.add(new Place("el JJ", 29.097437, -111.022033));
+    }
+
+    @Override
+    public void onClickPlaceRow(Place place) {
+        MapsActivity.start(this, place);
     }
 }

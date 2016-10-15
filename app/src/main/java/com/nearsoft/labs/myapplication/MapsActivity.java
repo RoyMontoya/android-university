@@ -1,5 +1,7 @@
 package com.nearsoft.labs.myapplication;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -12,7 +14,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    private static final String PLACE_EXTRA_KEY = "place_extra_key";
     private GoogleMap mMap;
+    private Place mPlace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        mPlace = getIntent().getParcelableExtra(PLACE_EXTRA_KEY);
     }
 
 
@@ -38,12 +44,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        //TODO: find your house!
-
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(29.097437, -111.022033);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Nearsoft"));
+        LatLng sydney = new LatLng(mPlace.getLongitude(), mPlace.getLatitude());
+        mMap.addMarker(new MarkerOptions().position(sydney).title(mPlace.getName()));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
+    }
+
+    public static void start(Activity context, Place place) {
+        Intent intent = new Intent(context, MapsActivity.class);
+        intent.putExtra(PLACE_EXTRA_KEY, place);
+        context.startActivity(intent);
     }
 }

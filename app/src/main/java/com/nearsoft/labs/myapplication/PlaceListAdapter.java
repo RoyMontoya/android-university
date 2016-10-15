@@ -14,9 +14,11 @@ import java.util.List;
 public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.ViewHolder> {
 
     private final List<Place> mPlaceList;
+    private PlaceListListener mPlaceListListener;
 
-    PlaceListAdapter(List<Place> placeList) {
-        this.mPlaceList = placeList;
+    PlaceListAdapter(List<Place> placeList, PlaceListListener placeListListener) {
+        mPlaceList = placeList;
+        mPlaceListListener = placeListListener;
     }
 
     @Override
@@ -28,8 +30,14 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.View
 
     @Override
     public void onBindViewHolder(PlaceListAdapter.ViewHolder holder, int position) {
-        String placeName = mPlaceList.get(position).getName();
-        holder.placeTitleTextView.setText(placeName);
+        final Place place = mPlaceList.get(position);
+        holder.placeTitleTextView.setText(place.getName());
+        holder.placeTitleTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mPlaceListListener.onClickPlaceRow(place);
+            }
+        });
     }
 
     @Override
@@ -48,5 +56,3 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.View
     }
 
 }
-
-//AIzaSyCjZJlWfqjt5fwtqZuiv9aIpKCrgV-eCKo
