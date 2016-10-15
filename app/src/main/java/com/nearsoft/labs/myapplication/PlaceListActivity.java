@@ -1,5 +1,6 @@
 package com.nearsoft.labs.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,6 +30,10 @@ public class PlaceListActivity extends AppCompatActivity {
 
         mAdapter = new PlaceListAdapter(mPlaceList);
         mRecyclerView.setAdapter(mAdapter);
+
+        //TODO: go to https://developers.google.com/maps/documentation/android-api/ to get a key
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
     }
 
     private void fillPlaceList() {

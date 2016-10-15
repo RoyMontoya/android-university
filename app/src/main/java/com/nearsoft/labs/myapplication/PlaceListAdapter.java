@@ -48,3 +48,5 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.View
     }
 
 }
+
+//AIzaSyCjZJlWfqjt5fwtqZuiv9aIpKCrgV-eCKo
