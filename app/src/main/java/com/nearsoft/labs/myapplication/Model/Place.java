@@ -1,17 +1,23 @@
-package com.nearsoft.labs.myapplication;/*
+package com.nearsoft.labs.myapplication.Model;/*
  * Copyright MDLive.  All rights reserved.
  */
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Place implements Parcelable {
-
-    String name;
-
-    double longitude;
-
-    double latitude;
+    @SerializedName("name")
+    private String name;
+    @SerializedName("long")
+    private double longitude;
+    @SerializedName("lat")
+    private double latitude;
+    @SerializedName("image_url")
+    private String imageUrl;
+    @SerializedName("ranking")
+    private int ranking;
 
     public Place(String name, double longitude, double latitude) {
         this.name = name;
@@ -73,6 +79,21 @@ public class Place implements Parcelable {
         this.latitude = latitude;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public int getRanking() {
+        return ranking;
+    }
+
+    public void setRanking(int ranking) {
+        this.ranking = ranking;
+    }
 
 
 }

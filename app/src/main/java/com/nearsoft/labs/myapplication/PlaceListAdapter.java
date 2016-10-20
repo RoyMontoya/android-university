@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.nearsoft.labs.myapplication.Model.Place;
+
 import java.util.List;
 
 /*
