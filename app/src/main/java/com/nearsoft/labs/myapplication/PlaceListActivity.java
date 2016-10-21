@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.nearsoft.labs.myapplication.Model.Place;
 import com.nearsoft.labs.myapplication.Model.Places;
@@ -67,6 +68,6 @@ public class PlaceListActivity extends AppCompatActivity implements PlaceListLis
 
     @Override
     public void onFailure(Call<Places> call, Throwable t) {
-        Log.d(PlaceListActivity.class.getSimpleName(), t.getMessage());
+        Toast.makeText(this, t.getMessage(), Toast.LENGTH_LONG).show();
     }
 }
