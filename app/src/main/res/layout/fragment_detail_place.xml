@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.nearsoft.labs.myapplication.DetailPlaceFragment">
+
+
+    <ImageView
+        android:id="@+id/place_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true" />
+
+    <TextView
+        style="@style/header_text"
+        android:text="@string/place_name" />
+
+    <TextView
+        android:id="@+id/place_name_textview"
+        style="@style/attribute_text" />
+
+    <TextView
+        style="@style/header_text"
+        android:text="@string/ranking" />
+
+    <TextView
+        android:id="@+id/place_rank_textview"
+        style="@style/attribute_text" />
+
+    <RelativeLayout
+        android:paddingTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/map_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/show_button" />
+    </RelativeLayout>
+
+
+</LinearLayout>

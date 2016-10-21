@@ -7,8 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.nearsoft.labs.myapplication.Model.Place;
-import com.nearsoft.labs.myapplication.Retrofit.Places;
+import com.nearsoft.labs.myapplication.Model.Places;
 import com.nearsoft.labs.myapplication.Retrofit.PlacesService;
+import com.nearsoft.labs.myapplication.adapters.PlaceListAdapter;
 
 import java.util.List;
 
@@ -19,12 +20,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PlaceListActivity extends AppCompatActivity implements PlaceListListener, Callback<Places> {
-    //    private static final String SERVICE_URL = "http://demo2355296.mockable.io/";
-    private static final String SERVICE_URL = "https://androidschool.herokuapp.com/";
+        private static final String SERVICE_URL = "http://demo2355296.mockable.io/";
 
-    private RecyclerView mRecyclerView;
-    private LinearLayoutManager mLayoutManager;
-    private PlaceListAdapter mAdapter;
     private List<Place> mPlaceList;
 
     @Override
@@ -49,23 +46,23 @@ public class PlaceListActivity extends AppCompatActivity implements PlaceListLis
 
     @Override
     public void onClickPlaceRow(Place place) {
-        MapsActivity.start(this, place);
+        DetailPlaceActivity.start(this, place);
+    }
+
+    private void setList() {
+        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.place_list);
+
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        PlaceListAdapter mAdapter = new PlaceListAdapter(mPlaceList, this);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
     public void onResponse(Call<Places> call, Response<Places> response) {
         mPlaceList = response.body().places;
         setList();
-    }
-
-    private void setList() {
-        mRecyclerView = (RecyclerView) findViewById(R.id.place_list);
-
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
-        mAdapter = new PlaceListAdapter(mPlaceList, this);
-        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override

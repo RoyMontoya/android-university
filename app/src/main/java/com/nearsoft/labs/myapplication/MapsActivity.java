@@ -2,8 +2,8 @@ package com.nearsoft.labs.myapplication;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -14,8 +14,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.nearsoft.labs.myapplication.Model.Place;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
-    private static final String PLACE_EXTRA_KEY = "place_extra_key";
     private GoogleMap mMap;
     private Place mPlace;
 
@@ -28,7 +26,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        mPlace = getIntent().getParcelableExtra(PLACE_EXTRA_KEY);
+        mPlace = getIntent().getParcelableExtra(DetailPlaceFragment.PLACE_EXTRA_KEY);
     }
 
     @Override
@@ -36,15 +34,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(mPlace.getLongitude(), mPlace.getLatitude());
+        LatLng sydney = new LatLng(mPlace.getLatitude(), mPlace.getLongitude());
         mMap.addMarker(new MarkerOptions().position(sydney).title(mPlace.getName()));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15));
+
     }
 
     public static void start(Activity context, Place place) {
         Intent intent = new Intent(context, MapsActivity.class);
-        intent.putExtra(PLACE_EXTRA_KEY, place);
+        intent.putExtra(DetailPlaceFragment.PLACE_EXTRA_KEY, place);
         context.startActivity(intent);
     }
 }
+

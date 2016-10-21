@@ -1,4 +1,4 @@
-package com.nearsoft.labs.myapplication.Retrofit;
+package com.nearsoft.labs.myapplication.Model;
 
 import com.nearsoft.labs.myapplication.Model.Place;
 

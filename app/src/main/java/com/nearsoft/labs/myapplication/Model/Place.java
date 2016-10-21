@@ -29,6 +29,8 @@ public class Place implements Parcelable {
         name = in.readString();
         longitude = in.readDouble();
         latitude = in.readDouble();
+        imageUrl = in.readString();
+        ranking = in.readInt();
     }
 
     @Override
@@ -36,6 +38,8 @@ public class Place implements Parcelable {
         dest.writeString(name);
         dest.writeDouble(longitude);
         dest.writeDouble(latitude);
+        dest.writeString(imageUrl);
+        dest.writeInt(ranking);
     }
 
     @Override

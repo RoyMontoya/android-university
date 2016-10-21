@@ -1,4 +1,4 @@
-package com.nearsoft.labs.myapplication;
+package com.nearsoft.labs.myapplication.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nearsoft.labs.myapplication.Model.Place;
+import com.nearsoft.labs.myapplication.PlaceListListener;
+import com.nearsoft.labs.myapplication.R;
 
 import java.util.List;
 
@@ -18,7 +20,7 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.View
     private final List<Place> mPlaceList;
     private PlaceListListener mPlaceListListener;
 
-    PlaceListAdapter(List<Place> placeList, PlaceListListener placeListListener) {
+    public PlaceListAdapter(List<Place> placeList, PlaceListListener placeListListener) {
         mPlaceList = placeList;
         mPlaceListListener = placeListListener;
     }
