@@ -1,17 +1,23 @@
-package com.nearsoft.labs.myapplication;/*
+package com.nearsoft.labs.myapplication.model;/*
  * Copyright MDLive.  All rights reserved.
  */
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Place implements Parcelable {
-
-    String name;
-
-    double longitude;
-
-    double latitude;
+    @SerializedName("name")
+    private String name;
+    @SerializedName("long")
+    private double longitude;
+    @SerializedName("lat")
+    private double latitude;
+    @SerializedName("image_url")
+    private String imageUrl;
+    @SerializedName("ranking")
+    private int ranking;
 
     public Place(String name, double longitude, double latitude) {
         this.name = name;
@@ -23,6 +29,8 @@ public class Place implements Parcelable {
         name = in.readString();
         longitude = in.readDouble();
         latitude = in.readDouble();
+        imageUrl = in.readString();
+        ranking = in.readInt();
     }
 
     @Override
@@ -30,6 +38,8 @@ public class Place implements Parcelable {
         dest.writeString(name);
         dest.writeDouble(longitude);
         dest.writeDouble(latitude);
+        dest.writeString(imageUrl);
+        dest.writeInt(ranking);
     }
 
     @Override
@@ -48,6 +58,22 @@ public class Place implements Parcelable {
             return new Place[size];
         }
     };
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public int getRanking() {
+        return ranking;
+    }
+
+    public void setRanking(int ranking) {
+        this.ranking = ranking;
+    }
 
     public String getName() {
         return name;
@@ -72,7 +98,6 @@ public class Place implements Parcelable {
     public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
-
 
 
 }

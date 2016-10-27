@@ -1,10 +1,14 @@
-package com.nearsoft.labs.myapplication;
+package com.nearsoft.labs.myapplication.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.nearsoft.labs.myapplication.Place;
+import com.nearsoft.labs.myapplication.PlaceListListener;
+import com.nearsoft.labs.myapplication.R;
 
 import java.util.List;
 
