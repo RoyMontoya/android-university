@@ -7,5 +7,6 @@
     <string name="title_name">Name:</string>
     <string name="title_ranking">Ranking:</string>
     <string name="button_map_text">Show place on Map</string>
+    <string name="auth_failed">Failed to SignIn</string>
 
 </resources>
