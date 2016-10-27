@@ -42,7 +42,7 @@
                 android:value="com.nearsoft.labs.myapplication.PlaceListActivity" />
         </activity>
         <activity android:name=".DetailPlaceActivity" />
-        <activity android:name=".GoogleSignInActivity"></activity>
+
     </application>
 
 </manifest>
