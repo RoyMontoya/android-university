@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "759566181188",
+    "project_id": "android-university"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759566181188:android:4426f755e1213ce1",
+        "android_client_info": {
+          "package_name": "com.nearsoft.labs.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "759566181188-1gh66dp65sqmtj506ff47lg866ip69nq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nearsoft.labs.myapplication",
+            "certificate_hash": "B871D5E88D99C78AA54BE3A046B09ACA633BBDB3"
+          }
+        },
+        {
+          "client_id": "759566181188-784m85lvoinvjj1jvag4aqufaljvj219.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0qDntHaKmK9VryVbrl9Hdh2-qVoDIzTI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
