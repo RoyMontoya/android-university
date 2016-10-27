@@ -11,10 +11,11 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.nearsoft.labs.myapplication.model.Place;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private static final String PLACE_EXTRA_KEY = "place_extra_key";
+    public static final String PLACE_EXTRA_KEY = "place_extra_key";
     private GoogleMap mMap;
     private Place mPlace;
 
@@ -45,7 +46,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(mPlace.getLongitude(), mPlace.getLatitude());
+        LatLng sydney = new LatLng(mPlace.getLatitude(), mPlace.getLongitude());
         mMap.addMarker(new MarkerOptions().position(sydney).title(mPlace.getName()));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);

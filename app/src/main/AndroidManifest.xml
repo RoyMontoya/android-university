@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.nearsoft.labs.myapplication">
+    package="com.nearsoft.labs.myapplication">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -41,6 +41,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nearsoft.labs.myapplication.PlaceListActivity" />
         </activity>
+        <activity android:name=".DetailPlaceActivity" />
+        <activity android:name=".GoogleSignInActivity"></activity>
     </application>
 
 </manifest>
